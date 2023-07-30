@@ -1,0 +1,296 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    overflow: hidden;
+    inset: 0;
+    position: fixed;
+    background-color: white;
+    background-image: url("./img/cloth.png");
+    background-repeat: repeat;
+}
+
+.hide { display: none; }
+.show { display: block; }
+
+.mode-menu {
+    position: relative;
+    display: block;
+    font-size: 1.1em;
+
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.mode-menu a:hover {background-color: #ddd;}
+.mode-btn {
+    font-size: 1.1em;
+    width: 100%;
+
+    background-color: #99a537;
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+.mode-btn:hover {
+    background-color: #7c8a15;
+}
+.mode-content-x {
+    position: absolute;
+    width: 100%;
+    background-color: #f1f1f1;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.mode-content-x a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.mode-content-x span {
+    color: black;
+    margin: 0 16px;
+    padding: 5px 0;
+    font-weight: bold;
+    display: block;
+    border-top: 1px dashed #d7d7d7;
+    border-bottom: 1px solid #9d9a9a;
+}
+
+.search-container {
+    width: calc(100% - 50px);
+    height: 32px;
+    margin: 15px 25px;
+}
+.search-container input {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 42px 8px 12px;
+    width: calc(100% - 54px);
+    float: left;
+}
+.search-container input[type=number] {
+    text-align: center;
+    font-weight: bold;
+}
+.search-container input[type=number]::-webkit-outer-spin-button, 
+.search-container input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    width: 25px;
+    position: absolute;
+    top: 1px;
+    right: 42px;
+    height: calc(100% - 2px);
+}
+.search-container button {
+    position: relative;
+    float: right;
+    height: 21px;
+    top: -31px;
+    margin: 5px;
+
+    opacity: 0.6;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.search-container button:hover {
+    opacity: 0.8;
+}
+.search-container button img {
+    height: 100%;
+}
+
+#symbol-list {
+    margin: 25px;
+    padding: 0;
+    height: 255px;
+
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#symbol-list a {
+    color: #d2d4e5;
+    text-decoration: none;
+    padding: 4px;
+    margin: 4px;
+}
+#symbol-list a:hover {
+    color: white;
+    border: 1px solid #d4e54d;
+    margin: 3px;
+}
+
+.sc1::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.sc1::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+.sc1::-webkit-scrollbar-thumb {
+    background-color: #dfdfdf;
+    border-radius: 10px;
+}
+
+canvas {
+    position: fixed;
+}
+
+#grass {
+    opacity: 0.7;
+    float: right;
+    height: 100%;
+    z-index: 0;
+}
+
+#info-panel {
+    overflow-y: auto;
+    color: white;
+    background-color: rgb(9 11 42 / 60%);
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    z-index: 1;
+    border-right: solid 2px #4c4432bf;
+}
+
+#info-panel table {
+    width: calc(100% - 50px);
+    margin: 25px;
+    font-size: 1em;
+    border-collapse: collapse;
+}
+
+#info-panel table td {
+    padding: 0.75em 0 0.75em 0;
+}
+#info-panel table td:first-child {
+    padding-right: 1.01em;
+    width: 100px;
+}
+
+#info-panel table tr {
+    border-bottom: 1px solid rgb(130 140 147);
+}
+#info-panel table tr:last-child {
+    border: none;
+}
+
+#info-panel table tr:last-child td {
+    padding-top: 1.3em;
+}
+
+#mnemonic {
+    /* font-style: italic; */
+    text-align: center;
+}
+#jisho { text-align: center; }
+#jisho-search { width: 7em; }
+
+#info-panel hr {
+    margin: 10px 25px 10px 25px;
+    border-color: white;
+}
+
+#navigator {
+    background-image: url("./img/cloth.png");
+    z-index: 2;
+    position: fixed;
+    /* width: 300px; */
+    /* height: 100px; */
+    left: 50%;
+    top: 85%;
+    border: solid 1px #9d8e7bab;
+    box-shadow: 0px 0px 15px #6262626e
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+.arrow {
+    padding: 25px;
+    /* width: 100px; */
+    height: 50px;
+    float: left;
+    opacity: 0.85;
+}
+.arrow:hover {
+    opacity: 1;
+
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+.arrow:active {
+    -webkit-animation-name: none;
+    animation-name: none;
+    opacity: 0.25;
+}
+
+#current-symbol {
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    display: table;
+    font-size: 300%;
+    font-style: normal;
+    font-family: "Yuji Boku",sans-serif;
+}
+#current-symbol-v {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#tree-rendering {
+    position: fixed;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kanji Trees</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yuji+Boku" media="all">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" media="all">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" media="all">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+        <script src="index.mjs" type="module"></script>
+    </head>
+    <body>
+        <div id="info-panel" class="sc1">
+            <table>
+                <tr><td>On-yomi:</td><td id="onyomi">シチ</td></tr>
+                <tr><td>Kun-yomi:</td><td id="kunyomi">なな、なな.つ、なの、なな、なな.つ、なの</td></tr>
+                <tr><td>Strokes:</td><td id="kanji-strokes">2</td></tr>
+                <tr><td>Class:</td><td id="glyph-class"></td></tr>
+                <tr id="mnemonic" class="hide"><td colspan="2"></td></tr>
+                <tr id="jisho"><td colspan="2">
+                    <a href="https://jisho.org/search/*%E6%9C%A8*" target="_blank" rel="noopener noreferrer">
+                        <img id="jisho-search" src="./img/jisho-logo-white.svg">
+                    </a>
+                </td></tr>
+            </table>
+            <hr>
+            <div class="mode-menu">
+                <button onclick="toggleModeDropdown()" class="mode-btn">Remember the Kanji</button>
+                <div id="mode-dropdown" class="mode-content-x hide">
+                    <a id="rtk" href="javascript:void(0)">Remember the Kanji</a>
+                    <a id="pur" href="javascript:void(0)">Japanese-Made Kanji</a>
+                    <a id="ran" href="javascript:void(0)">Random</a>
+                    <span>Japanese Language Proficiency</span>
+                    <a id="jn5" href="javascript:void(0)">JLPT N5</a>
+                    <a id="jn4" href="javascript:void(0)">JLPT N4</a>
+                    <a id="jn3" href="javascript:void(0)">JLPT N3</a>
+                    <a id="jn2" href="javascript:void(0)">JLPT N2</a>
+                    <a id="jn1" href="javascript:void(0)">JLPT N1</a>
+                    <span>Search</span>
+                    <a id="def" href="javascript:void(0)">Definitions</a>
+                    <a id="rad" href="javascript:void(0)">Radicals</a>
+                    <a id="sto" href="javascript:void(0)">Stroke</a>
+                </div>
+            </div>
+            <div class="search-container hide">
+                <form action="javascript:;" onsubmit=";">
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit"><img src="./img/search-ico.svg"/></button>
+                </form>
+            </div>
+            <div class="search-container hide">
+                <form action="javascript:;">
+                    <input type="number" value="10" min="1" max="100" step="1">
+                    <button type="submit"><img src="./img/search-ico.svg"/></button>
+                </form>
+            </div>
+            <div id="symbol-list" class="sc1">
+                <!-- context.params.list -->
+            </div>
+        </div>
+        <div id="navigator">
+            <img id="left-arrow" class="arrow" src="./img/arrow-left.png">
+            <div id="current-symbol"><div id="current-symbol-v"></div></div>
+            <img id="right-arrow" class="arrow" src="./img/arrow-right.png">
+        </div>
+        <img id="grass" src="./img/grass.svg">
+        <script>
+            function toggleModeDropdown() {
+                let elemenet = document.getElementById("mode-dropdown")
+                elemenet.classList.toggle('show')
+                elemenet.classList.toggle('hide')
+            }
+            window.onclick = function(event) {
+                if (!event.target.matches('.mode-btn')) {
+                    let element = document.getElementById("mode-dropdown")
+                    if (element.classList.contains('show')) {
+                        element.classList.remove('show')
+                        element.classList.add('hide')
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

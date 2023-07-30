@@ -1,0 +1,20 @@
+{
+  "name": "kanji-web",
+  "version": "1.0.0",
+  "description": "Kanji trees",
+  "main": "static-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TekuConcept",
+  "license": "MIT & CC-BY-3.0",
+  "devDependencies": {
+    "@types/jquery": "@types/jquery",
+    "@types/matter-js": "^0.17.6"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "jquery": "^3.6.0",
+    "matter-js": "^0.17.1"
+  }
+}
