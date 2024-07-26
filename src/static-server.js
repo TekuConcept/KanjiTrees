@@ -16,6 +16,11 @@ var http = require("http"),
     };
  
 http.createServer(function(request, response) {
+    if (path.normalize(decodeURI(request.url)) !== decodeURI(request.url)) {
+        response.statusCode = 403;
+        response.end();
+        return;
+    }
     let uri = "";
     if (request.url.startsWith('/'))
         uri = request.url
